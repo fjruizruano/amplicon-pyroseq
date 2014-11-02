@@ -37,10 +37,10 @@ for file in files:
 			elif i == len(ref[0])-1:
 				end1 = col
 
-			elif i == len(ref[0]):
+			elif i == len(ref[0])+len(ref[1]):
 				begin2 = col
 
-			elif i == len(ref[0])+len(ref[1])-1:
+			elif i == len(ref[0])+len(ref[1])+len(ref[2])-1:
 				end2 = col
 
 	subali_outer = ali[1:,begin1:end1+1] + ali[1:,begin2:end2+1]
