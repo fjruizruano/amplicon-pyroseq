@@ -1,4 +1,4 @@
 amplicon-pyroseq
 ================
 
-Processing and analyzing pyrosequencing read from amplicons
+Processing and analyzing pyrosequencing reads from amplicons
