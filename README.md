@@ -5,13 +5,12 @@ Processing and analyzing pyrosequencing reads from amplicons
 
 # Dependencies
 
-* EMBOSS [Download](http://emboss.sourceforge.net/download/)
-* Acacia [Download](http://sourceforge.net/projects/acaciaerrorcorr/)
-* Uchime [Download](http://www.drive5.com/usearch/download.html)
-* MAFFT [Download](http://mafft.cbrc.jp/alignment/software/source.html)
+* EMBOSS [(Download)](http://emboss.sourceforge.net/download/)
+* Acacia [(Download)](http://sourceforge.net/projects/acaciaerrorcorr/)
+* Uchime [(Download)](http://www.drive5.com/usearch/download.html)
+* MAFFT [(Download)](http://mafft.cbrc.jp/alignment/software/source.html)
 
 # Pipeline
-
 
 The a series of custom Python scripts are developed to analyze de abundance of ITS2 haplotypes amplicons. In each sample should be separately amplified with the same pair of primers, but with a different tags combination in the 5' end of both. We used six differents 6mer tags designed with EDITTAG (Faircloth and Glenn, 2012). We pooled amplicons from every sample to sequence in a single run of pyrosequencing. 
 Amplicon-pyroseq separates the amplicons for each different sample attending to their tag combination, extracts the ITS2 region and the 5.8S-28S ribosomic genes and count the number of reads corresponding to each haplotype per sample.
@@ -22,7 +21,7 @@ Before running, add the sequence of your forward and reverse primers (for ITS2, 
 ```
 $ python 01split_genes.py
 ```
-The output will be several FASTQ files. "noMat.fq" corresponds to the reads without a good match with the introduced primers. In the other ones you will found the sequences matched with each pair of primers.
+The output will be several FASTQ files. "noMat.fq" corresponds to the reads without a good match with the introduced primers. In the other ones you will found the sequences matched with each pair of primers ("its34.fq" for the ITS2 region).
 2) It assigns each read to a given sample according to its tag combination using local alignments of the complete reads againts the tagged primers. To avoid missassignation, it sorts the alignments from higher to lower similarity and assigns the sample to a given read only if the best alignment showed less than four sequence differences, (i.e. the minimal number of differences between tags) in both tagged primers. Selected reads were stored in different files according to their combination of tags. The alignments also allowed us to trim tags and primers from the sequences.
 Before running the script, check the name of the single region you want to analyze and add the tagged primers used in the experiment (for ITS2, 79-97 lines). 
 ```
